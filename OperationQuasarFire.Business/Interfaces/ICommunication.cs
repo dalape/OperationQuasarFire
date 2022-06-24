@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OperationQuasarFire.Business.Interfaces
 {
-    interface ICommunication
+    public interface ICommunication
     {
+        float[] CoordinatesByName(string sateliteName);
     }
 }

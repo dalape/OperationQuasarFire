@@ -2,7 +2,8 @@
 {
     public class ShipResponse
     {
-        public float[] Position { get; set; }
+        public Position Position { get; set; }
         public string Message { get; set; }
+
     }
 }

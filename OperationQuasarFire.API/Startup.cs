@@ -69,6 +69,9 @@ namespace OperationQuasarFire.API
             services.AddTransient<IResponseService, ResponseService>();
             services.AddTransient<IExceptionHandler, ExceptionHandler>();
             services.AddTransient<IAuthentication, Business.Services.Authentication>();
+            services.AddTransient<IUtils, Utils>();
+            services.AddTransient<ICommunication, Communication>();
+            services.AddTransient<IOperationBase, OperationBase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

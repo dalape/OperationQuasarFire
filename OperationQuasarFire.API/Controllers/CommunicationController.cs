@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OperationQuasarFire.Business.Interfaces;
+using OperationQuasarFire.Model;
 using OperationQuasarFire.Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,29 @@ namespace OperationQuasarFire.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AuthenticationController : ControllerBase
+    public class CommunicationController : ControllerBase
     {
-        private readonly IAuthentication _authenticationService;
+        private readonly IOperationBase _operationBaseService;
 
-        public AuthenticationController(IAuthentication authenticationService) => _authenticationService = authenticationService;
+        public CommunicationController(IOperationBase operationBaseService) => _operationBaseService = operationBaseService;
 
-        [Authorize("BasicAuthentication")]
-        [HttpPost("GetToken")]
-        public async Task<IActionResult> GetToken()
+
+        [Authorize]
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Topsecret(List<Satelite> satellites)
         {
-            IResponseService response = await _authenticationService.GetToken();
+            IResponseService response = await _operationBaseService.TriangularPosition(satellites);
             if (response.Meta.Status && response.Meta.HttpStatus == MessagesEnum.HttpStateUnauthorized) return Unauthorized();
             if (response.Meta.Status) return Ok(response);
             ModelState.AddModelError(MessagesEnum.Error, string.Join(",", response.Meta.Errors));
             return BadRequest(ModelState);
+        }
+
+        [Authorize]
+        [HttpPost("[action]/{satelliteName}")]
+        public bool TopSecretSplit(string satelliteName, [FromBody] SateliteSplit satellite)
+        {
+            return false; 
         }
     }
 }
