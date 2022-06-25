@@ -35,7 +35,7 @@ namespace OperationQuasarFire.Business.Services
                 _responseService.SetResponse(true, MessagesEnum.HttpStateOk, shirpResponse);
                 return _responseService;
             }
-            catch (Exception ex)
+            catch (OperationBaseException ex)
             {
                 _responseService.Meta.Errors.Add(_exceptionHandler.GetMessage(ex));
                 _responseService.SetResponse(false, MessagesEnum.HttpStateBadRequest, null);
@@ -53,7 +53,7 @@ namespace OperationQuasarFire.Business.Services
                     if (satellites.Count > 0)
                     {
                         if (satellites.Where(x => x.Name.Equals(satelite.Name)).Any())
-                            throw new Exception($"Ya se tiene registrada la información para el satélite {satelite.Name}");
+                            throw new OperationBaseException($"Ya se tiene registrada la información para el satélite {satelite.Name}");
                         else
                             satellites.Add(satelite);
                     }
@@ -66,7 +66,7 @@ namespace OperationQuasarFire.Business.Services
                 }
                 return _responseService;
             }
-            catch(Exception ex)
+            catch(OperationBaseException ex)
             {
                 _responseService.Meta.Errors.Add(_exceptionHandler.GetMessage(ex));
                 _responseService.SetResponse(false, MessagesEnum.HttpStateBadRequest, null);
@@ -87,17 +87,24 @@ namespace OperationQuasarFire.Business.Services
                     shirpResponse.Message = _utils.CreateMessage(satellites);
                     _utils.DeleteFile();
                 }else
-                    throw new Exception($"No existe suficie información para determinar la posición");
+                    throw new OperationBaseException($"No existe suficie información para determinar la posición");
 
                 _responseService.SetResponse(true, MessagesEnum.HttpStateOk, shirpResponse);
                 return _responseService;
             }
-            catch (Exception ex)
+            catch (OperationBaseException ex)
             {
                 _responseService.Meta.Errors.Add(_exceptionHandler.GetMessage(ex));
                 _responseService.SetResponse(false, MessagesEnum.HttpStateBadRequest, null);
                 return _responseService;
             }
+        }
+    }
+
+    public class OperationBaseException : Exception
+    {
+        public OperationBaseException(string message) : base(message)
+        {
         }
     }
 }

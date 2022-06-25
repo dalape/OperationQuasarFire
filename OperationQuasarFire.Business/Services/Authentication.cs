@@ -45,7 +45,7 @@ namespace OperationQuasarFire.Business.Services
                 _responseService.SetResponse(true, MessagesEnum.HttpStateOk, authResponse);
                 return _responseService;
             }
-            catch (Exception ex)
+            catch (AuthenticationException ex)
             {
                 _responseService.Meta.Errors.Add(_exceptionHandler.GetMessage(ex));
                 _responseService.SetResponse(false, MessagesEnum.HttpStateBadRequest, null);
@@ -63,10 +63,17 @@ namespace OperationQuasarFire.Business.Services
                 if (name.Equals("DiegoAlape") && encryptedPassword.Equals("CtFNZrdM705Rm+UbgKuhbQ==")) return true; 
                 else return false;
             }
-            catch (Exception)
+            catch (AuthenticationException)
             {
                 throw;
             }
+        }
+    }
+
+    public class AuthenticationException : Exception
+    {
+        public AuthenticationException(string message) : base(message)
+        {
         }
     }
 }
