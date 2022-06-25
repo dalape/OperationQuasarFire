@@ -20,7 +20,7 @@ namespace OperationQuasarFire.API.Controllers
         public CommunicationController(IOperationBase operationBaseService) => _operationBaseService = operationBaseService;
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("[action]")]
         public async Task<IActionResult> Topsecret(List<Satelite> satellites)
         {
@@ -31,7 +31,7 @@ namespace OperationQuasarFire.API.Controllers
             return BadRequest(ModelState);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("[action]/{satelliteName}")]
         public async Task<IActionResult> TopSecretSplit(string satelliteName, [FromBody] SateliteSplit satellite)
         {
@@ -42,7 +42,7 @@ namespace OperationQuasarFire.API.Controllers
             return BadRequest(ModelState);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("[action]")]
         public async Task<IActionResult> TopSecretSplit()
         {
