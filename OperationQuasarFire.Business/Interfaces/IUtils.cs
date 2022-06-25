@@ -11,5 +11,8 @@ namespace OperationQuasarFire.Business.Interfaces
     {
         float[] CalculatePosition(List<Satelite> satellites);
         string CreateMessage(List<Satelite> satellites);
+        Task<List<Satelite>> ReadInformationFromFile();
+        Task WriteInformationInFile(List<Satelite> satellites);
+        void DeleteFile();
     }
 }

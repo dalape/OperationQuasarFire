@@ -1,4 +1,5 @@
 ﻿using OperationQuasarFire.Business.Interfaces;
+using System;
 
 namespace OperationQuasarFire.Business.Services
 {
@@ -22,11 +23,29 @@ namespace OperationQuasarFire.Business.Services
                     coordinates[1] = 100;
                     break;
                 default:
-                    return coordinates;
+                    throw new CommunicationException($"No se encuentra el satélite {sateliteName}");
             }
 
             return coordinates;
         }
 
+        public bool ValidateSateliteName(string sateliteName)
+        {
+            return sateliteName.ToLower() switch
+            {
+                "kenobi" => true,
+                "skywalker" => true,
+                "sato" => true,
+                _ => throw new CommunicationException($"No se encuentra el satélite {sateliteName}"),
+            };
+        }
+
+    }
+
+    public class CommunicationException : Exception
+    {
+        public CommunicationException(string message) : base(message)
+        {
+        }
     }
 }

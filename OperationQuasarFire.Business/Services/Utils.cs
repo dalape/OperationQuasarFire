@@ -2,8 +2,10 @@
 using OperationQuasarFire.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace OperationQuasarFire.Business.Services
@@ -11,7 +13,7 @@ namespace OperationQuasarFire.Business.Services
     public class Utils : IUtils
     {
         private readonly ICommunication _communication;
-
+        private static readonly string path = "./SateliteInformation.txt";
         public Utils(ICommunication communication) => _communication = communication;
 
         public float[] CalculatePosition(List<Satelite> satellites)
@@ -77,5 +79,29 @@ namespace OperationQuasarFire.Business.Services
         {
             return ((w * x - u * z) / (v * x - u * y));
         }
+
+        public async Task<List<Satelite>> ReadInformationFromFile()
+        {
+            if (File.Exists(path))
+            {
+                List<Satelite> satellites = JsonSerializer.Deserialize<List<Satelite>>(await File.ReadAllTextAsync(path));
+
+                return satellites;
+            }
+            else
+                return new List<Satelite>();
+        }
+
+        public async Task WriteInformationInFile(List<Satelite> satellites)
+        {
+            using StreamWriter writer = new(path);
+            await writer.WriteAsync(JsonSerializer.Serialize<List<Satelite>>(satellites));
+        }
+
+        public void DeleteFile()
+        {
+            File.Delete(path);
+        }
+
     }
 }
