@@ -13,7 +13,7 @@ namespace OperationQuasarFire.Business.Services
 
         public string GetMessage(Exception ex)
         {
-            if (ex is ApplicationException applicationEx)
+            if (ex is ApplicationException)
             {
                 _logger.LogInformation(MessagesEnum.OwnError, ex, ex.Message.ToString());
                 return ex.Message;
