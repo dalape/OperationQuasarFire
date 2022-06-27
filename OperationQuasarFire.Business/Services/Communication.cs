@@ -40,6 +40,39 @@ namespace OperationQuasarFire.Business.Services
             };
         }
 
+        public float[] GetLocation(float distance)
+        {
+            float[] coordinates = new float[2];
+
+            switch (distance)
+            {
+                //Kenobi
+                case 100.0F:
+                    coordinates[0] = -500;
+                    coordinates[1] = -200;
+                    break;
+                //Skywalker
+                case 115.5F:
+                    coordinates[0] = 100;
+                    coordinates[1] = -100;
+                    break;
+                //Sato
+                case 142.7F:
+                    coordinates[0] = 500;
+                    coordinates[1] = 100;
+                    break;
+                default:
+                    throw new CommunicationException($"No se encuentra el satélite por la distancia {distance}");
+            }
+
+            return coordinates;
+        }
+
+        public string GetMessage(string[] messages)
+        {
+            return string.Join(' ', messages);
+        }
+
     }
 
     public class CommunicationException : Exception

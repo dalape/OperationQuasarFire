@@ -10,5 +10,7 @@ namespace OperationQuasarFire.Business.Interfaces
     {
         float[] CoordinatesByName(string sateliteName);
         bool ValidateSateliteName(string sateliteName);
+        float[] GetLocation(float distance);
+        string GetMessage(string[] messages);
     }
 }

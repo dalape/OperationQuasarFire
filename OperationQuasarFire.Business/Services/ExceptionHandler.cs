@@ -10,6 +10,7 @@ namespace OperationQuasarFire.Business.Services
         private readonly ILogger<ExceptionHandler> _logger;
 
         public ExceptionHandler(ILogger<ExceptionHandler> logger) => _logger = logger;
+        public ExceptionHandler() { }
 
         public string GetMessage(Exception ex)
         {

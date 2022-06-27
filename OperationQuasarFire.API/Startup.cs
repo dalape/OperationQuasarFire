@@ -34,8 +34,8 @@ namespace OperationQuasarFire.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OperationQuasarFire.API", Version = "v1" });
@@ -66,6 +66,7 @@ namespace OperationQuasarFire.API
                 options.AddPolicy("BasicAuthentication", new AuthorizationPolicyBuilder("BasicAuthentication").RequireAuthenticatedUser().Build());
             });
 
+            services.AddHttpClient();
             services.AddTransient<IResponseService, ResponseService>();
             services.AddTransient<IExceptionHandler, ExceptionHandler>();
             services.AddTransient<IAuthentication, Business.Services.Authentication>();
@@ -87,6 +88,8 @@ namespace OperationQuasarFire.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
