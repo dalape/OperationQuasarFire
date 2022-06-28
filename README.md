@@ -11,11 +11,31 @@
 
 A continuación se podrá encontrar los endpoints implementados en un app services de azure para el respectivo consumo:
 
-1. https://operationquasarfire.azurewebsites.net/Authentication/GetToken : Método **POST**, requiere Autehnticación básica con los siguientes Datos:
+1. https://operationquasarfire.azurewebsites.net/Authentication/GetToken : Método **POST**, requiere Autenticación básica con los siguientes Datos:
 
 **Usuario**: DiegoAlape 
 **Constraseña**: MercadoLibre123
 
  Su función es obtener el token de autorización para la ejecución del API, retorna el token y la fecha de expiración del token generado, con este token se podrá hacer uso de los Endpoints para triangular y guardar información de los satélites.
  
- 
+2. https://operationquasarfire.azurewebsites.net/Communication/Topsecret : Método **POST**, requiere Autenticación **Bearer Token** el token se puede generar teniendo en cuenta el endpoint número 1 y su respectivo instructivo, Cuerpo de la petición Json con la respectiva información de los tres satélites. Su función es triangular la posición de la nave y decifrar el mensaje enviado a los tres satélites, retorna las coordenadas **X** y **Y** de la nave y el mensaje decifrado de ser posible, en caso de falta de información o que no se pueda triangular la posición responde con un mensaje de error. para realizar la prueba del endpoint se puede utilizar el siguiente objeto Json: 
+
+[
+  {
+    "name": "kenobi",
+    "distance": 100.0,
+    "message": ["este", "", "", "mensaje", ""]
+  },
+  {
+    "name": "skywalker",
+    "distance": 115.5,
+    "message": ["", "es", "", "", "secreto"]
+  },
+  {
+    "name": "sato",
+    "distance": 142.7,
+    "message": ["este", "", "un", "", ""]
+  }
+]
+
+
