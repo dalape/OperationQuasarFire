@@ -1,11 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OperationQuasarFire.Business.Interfaces;
-using OperationQuasarFire.Business.Services;
 using OperationQuasarFire.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OperationQuasarFire.Business.Services.Tests
@@ -97,8 +93,17 @@ namespace OperationQuasarFire.Business.Services.Tests
             ICommunication communication = new Communication();
             IUtils utils = new Utils(communication);
             IOperationBase operationBase = new OperationBase(responseService, exceptionHandler, utils, communication);
+            string[] messagesSato = { "este", "", "", "un", "" };
+            Satelite sateliteSato = new() { Name = "sato", Distance = 142.7F, Message = messagesSato };
+            string[] messagesSkywalker = { "", "", "es", "", "secreto" };
+            Satelite sateliteSkywalker = new() { Name = "skywalker", Distance = 115.5F, Message = messagesSkywalker };
+            string[] messagesKenobi = { "este", "", "", "mensaje", "" };
+            Satelite sateliteKenobi = new() { Name = "kenobi", Distance = 100.0F, Message = messagesKenobi };
 
             //Act
+            await operationBase.SaveSateliteInformation(sateliteKenobi);
+            await operationBase.SaveSateliteInformation(sateliteSkywalker);
+            await operationBase.SaveSateliteInformation(sateliteSato);
             IResponseService response = await operationBase.TriangularPosition();
             //Assert
             Assert.IsTrue(response.Meta.Status, "Error al triangular posición por partes ");

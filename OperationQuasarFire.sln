@@ -9,7 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationQuasarFire.Busines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationQuasarFire.API", "OperationQuasarFire.API\OperationQuasarFire.API.csproj", "{3D3C5549-223A-4981-A607-999EF31EFFE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationQuasarFire.BusinessTests", "OperationQuasarFire.BusinessTests\OperationQuasarFire.BusinessTests.csproj", "{5AF8E2C2-E864-4250-B75F-A1C3649999AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperationQuasarFire.BusinessTests", "OperationQuasarFire.BusinessTests\OperationQuasarFire.BusinessTests.csproj", "{5AF8E2C2-E864-4250-B75F-A1C3649999AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{1537E663-113D-49EF-9615-46E5C6B32305}"
+	ProjectSection(SolutionItems) = preProject
+		..\Manual de creación y ejecución aplicativo Operación fuego de Quasar.docx = ..\Manual de creación y ejecución aplicativo Operación fuego de Quasar.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostmanCollection", "PostmanCollection", "{8492B548-F50D-46F1-BC93-22FD7423B4DE}"
+	ProjectSection(SolutionItems) = preProject
+		..\OperationQuasarFire.postman_collection.json = ..\OperationQuasarFire.postman_collection.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +46,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8492B548-F50D-46F1-BC93-22FD7423B4DE} = {1537E663-113D-49EF-9615-46E5C6B32305}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2AF511A-BF12-4B21-96EA-3667A1E9B052}
