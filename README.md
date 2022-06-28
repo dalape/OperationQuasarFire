@@ -63,7 +63,7 @@ A continuación se podrá encontrar los endpoints implementados en un app servic
 
 4. https://operationquasarfire.azurewebsites.net/Communication/TopSecretSplit : Método **GET**, requiere Autenticación **Bearer Token** el token se puede generar teniendo en cuenta el endpoint número 1 y su respectivo instructivo. Su función es triangular la posición de la nave y decifrar el mensaje enviado a los tres satélites obtendrá la información de los datos almacenados en el archivo plano que se puede llenar desde el endpoint 3, retorna las coordenadas **X** y **Y** de la nave y el mensaje decifrado de ser posible, en caso de falta de información o que no se pueda triangular la posición responde con un mensaje de error.
 
-**NOTA**: En caso de dudas consultar la carpeta Documents del proyecto donde se podrá encontrar un manual de ejecución para cada endpoint.
+**NOTA**: En caso de dudas consultar la carpeta Documents que se encuentra en la siguiente ruta: OperationQuasarFire.API/Properties/ donde se podrá encontrar un manual de ejecución para cada endpoint, adicionalmente podrá encontrar la collección de postman en la siguiente ruta OperationQuasarFire.API/Properties/PostmanCollection
 
 **Fórmulas matemáticas para triangulación de la posición de la nave**
 
