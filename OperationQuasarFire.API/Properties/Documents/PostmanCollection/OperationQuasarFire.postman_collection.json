@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "29110dd2-8f93-474a-8e4c-fac2295853f5",
+		"name": "OperationQuasarFire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21674064"
+	},
+	"item": [
+		{
+			"name": "GetToken",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "MercadoLibre123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "DiegoAlape",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://operationquasarfire.azurewebsites.net/Authentication/GetToken",
+					"protocol": "https",
+					"host": [
+						"operationquasarfire",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Authentication",
+						"GetToken"
+					]
+				},
+				"description": "Optine el token de autorización"
+			},
+			"response": []
+		},
+		{
+			"name": "Topsecret",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFwaSIsIm5iZiI6MTY1NjM4NjgwMSwiZXhwIjoxNjU4OTc4ODAxLCJpYXQiOjE2NTYzODY4MDF9.ultZqFmXZjISd-imvcwt9IXb2Vzc_IWkVwEzwnCHhxQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \r\n    { \"name\": \"kenobi\", \"distance\": 100.0, \"message\": [\"este\", \"\", \"\", \"mensaje\", \"\"] },\r\n    { \"name\": \"skywalker\", \"distance\": 115.5, \"message\": [\"\", \"es\", \"\", \"\", \"secreto\"] },\r\n    { \"name\": \"sato\", \"distance\": 142.7, \"message\": [\"este\", \"\", \"un\", \"\", \"\"] } \r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://operationquasarfire.azurewebsites.net/Communication/Topsecret",
+					"protocol": "https",
+					"host": [
+						"operationquasarfire",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Communication",
+						"Topsecret"
+					]
+				},
+				"description": "Triangula la posición de la nave y descifra el mensaje secreto"
+			},
+			"response": []
+		},
+		{
+			"name": "TopSecretSplit/Kenobi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFwaSIsIm5iZiI6MTY1NjM4NjgwMSwiZXhwIjoxNjU4OTc4ODAxLCJpYXQiOjE2NTYzODY4MDF9.ultZqFmXZjISd-imvcwt9IXb2Vzc_IWkVwEzwnCHhxQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"distance\": 100.0, \"message\": [\"este\", \"\", \"\", \"mensaje\", \"\"] }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://operationquasarfire.azurewebsites.net/Communication/TopSecretSplit/Kenobi",
+					"protocol": "https",
+					"host": [
+						"operationquasarfire",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Communication",
+						"TopSecretSplit",
+						"Kenobi"
+					]
+				},
+				"description": "Guarda la información del satélite Kenobi"
+			},
+			"response": []
+		},
+		{
+			"name": "TopSecretSplit/skywalker",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFwaSIsIm5iZiI6MTY1NjM4NjgwMSwiZXhwIjoxNjU4OTc4ODAxLCJpYXQiOjE2NTYzODY4MDF9.ultZqFmXZjISd-imvcwt9IXb2Vzc_IWkVwEzwnCHhxQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"distance\": 115.5, \"message\": [\"\", \"es\", \"\", \"\", \"secreto\"] }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://operationquasarfire.azurewebsites.net/Communication/TopSecretSplit/skywalker",
+					"protocol": "https",
+					"host": [
+						"operationquasarfire",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Communication",
+						"TopSecretSplit",
+						"skywalker"
+					]
+				},
+				"description": "Almacena la información del satélite Skywalker"
+			},
+			"response": []
+		},
+		{
+			"name": "TopSecretSplit/sato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFwaSIsIm5iZiI6MTY1NjM4NjgwMSwiZXhwIjoxNjU4OTc4ODAxLCJpYXQiOjE2NTYzODY4MDF9.ultZqFmXZjISd-imvcwt9IXb2Vzc_IWkVwEzwnCHhxQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"distance\": 142.7, \"message\": [\"este\", \"\", \"un\", \"\", \"\"] }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://operationquasarfire.azurewebsites.net/Communication/TopSecretSplit/sato",
+					"protocol": "https",
+					"host": [
+						"operationquasarfire",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Communication",
+						"TopSecretSplit",
+						"sato"
+					]
+				},
+				"description": "Almacena la información del satéite Sato"
+			},
+			"response": []
+		},
+		{
+			"name": "TopSecretSplit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFwaSIsIm5iZiI6MTY1NjM4NjgwMSwiZXhwIjoxNjU4OTc4ODAxLCJpYXQiOjE2NTYzODY4MDF9.ultZqFmXZjISd-imvcwt9IXb2Vzc_IWkVwEzwnCHhxQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://operationquasarfire.azurewebsites.net/Communication/TopSecretSplit",
+					"protocol": "https",
+					"host": [
+						"operationquasarfire",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"Communication",
+						"TopSecretSplit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
