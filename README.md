@@ -66,3 +66,20 @@ A continuación se podrá encontrar los endpoints implementados en un app servic
 **NOTA**: En caso de dudas consultar la carpeta Documents del proyecto donde se podrá encontrar un manual de ejecución para cada endpoint.
 
 **Fórmulas matemáticas para triangulación de la posición de la nave**
+**Variables**
+Coordenadas de cada satelite **Si=(Six, Siy)**
+Distancia a cada satelite **Di**
+
+**Fórmulas**
+Una vez sabemos las variables a considerar, se realizan los siguientes cálculos
+* **U=**-2S1x + 2S2x : Halla coordena en x entre el satélite 1 y 2
+* **V=**-2S1y + 2S2y : Halla coordena en y entre el satélite 1 y 2
+* **W=** D1^2 - D2^2 - S1x^2 + S2x^2 - S1y^2 + S2y^2 : Calculo de diferencia de distancias en coordenadas X y Y entre los satélites 1 y 2
+* **X=**-2S2x + 2S3x : Halla coordena en x entre el satélite 2 y 3
+* **Y=**-2S2y + 2S3y : Halla coordena en y entre el satélite 2 y 3
+* **Z=** D2^2 - D3^2 - S2x^2 + S3x^2 - S2y^2 + S3y^2 : Calculo de diferencia de distancias en coordenadas X y Y entre los satélites 2 y 3
+
+#### Cálculo de coordenadas
+Para el cálculo de las coordenadas de la nave se toman las formulas anteriores y se aplican en las siguientes ecuaciones:
+* **X=** (WY - ZV) / (YU - VX)
+* **Y=** (WX - UZ) / (VX - UY)
