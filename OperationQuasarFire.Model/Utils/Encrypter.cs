@@ -10,10 +10,10 @@ namespace OperationQuasarFire.Model.Utils
         {
             byte[] key;
             byte[] array = UTF8Encoding.UTF8.GetBytes(value);
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            MD5CryptoServiceProvider md5 = new();
             key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(secret));
             md5.Clear();
-            TripleDESCryptoServiceProvider tripledes = new TripleDESCryptoServiceProvider
+            TripleDESCryptoServiceProvider tripledes = new()
             {
                 Key = key,
                 Mode = CipherMode.ECB,
@@ -29,10 +29,10 @@ namespace OperationQuasarFire.Model.Utils
         {
             byte[] key;
             byte[] array = Convert.FromBase64String(value);
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            MD5CryptoServiceProvider md5 = new();
             key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(secret));
             md5.Clear();
-            TripleDESCryptoServiceProvider tripledes = new TripleDESCryptoServiceProvider
+            TripleDESCryptoServiceProvider tripledes = new()
             {
                 Key = key,
                 Mode = CipherMode.ECB,
