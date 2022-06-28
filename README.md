@@ -66,6 +66,7 @@ A continuación se podrá encontrar los endpoints implementados en un app servic
 **NOTA**: En caso de dudas consultar la carpeta Documents del proyecto donde se podrá encontrar un manual de ejecución para cada endpoint.
 
 **Fórmulas matemáticas para triangulación de la posición de la nave**
+
 **Variables**
 Coordenadas de cada satelite **Si=(Six, Siy)**
 Distancia a cada satelite **Di**
